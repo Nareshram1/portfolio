@@ -12,7 +12,7 @@
     //  const data =await import("URL")
 
      return {
-        props:{'name':"Naresh"}
+        props:{'name':"Naresh Ram"}
     
     }
  }
