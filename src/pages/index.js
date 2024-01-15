@@ -1,11 +1,14 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from "next/link"
 import { Inter } from '@next/font/google'
+
 
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const cat=["animal","career","celebrity","dev","explicit","fashion","food","history","money","movie","music","political","religion","science","sport","travel"]
   return (
     <>
       <Head>
@@ -16,7 +19,28 @@ export default function Home() {
       </Head>
       <main>
        <div>
-        <section className=' flex min-h-screen bg-blue-900'></section>
+        <section className=' flex min-h-screen bg-slate-500 align-middle justify-center'>
+        <div className="flex bg-slate-600 rounded-lg shadow-md px-9 py-9 text-center mt-72 mb-60 ">
+        <Link
+        href={{
+          pathname: '/chucknorris',
+          query:{
+            category:'animal'
+          } // the data
+        }}
+      >
+          <h2 className='text-xl text-white pt-20'>Wanna Hear a chucknorris joke</h2>
+        </Link>
+        
+          <select>
+          <option defaultValue>Choose a country</option>
+            {cat.map((i)=>(
+              <option key={i} value={i}>{i}</option>
+            ))}
+          </select>
+
+        </div>
+        </section>
        </div>
       </main>
     </>
