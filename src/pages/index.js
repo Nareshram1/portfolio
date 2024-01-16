@@ -4,11 +4,12 @@ import Link from "next/link"
 import { Inter } from '@next/font/google'
 
 
-
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  const cat=["animal","career","celebrity","dev","explicit","fashion","food","history","money","movie","music","political","religion","science","sport","travel"]
+
+ 
+
   return (
     <>
       <Head>
@@ -24,20 +25,12 @@ export default function Home() {
         <Link
         href={{
           pathname: '/chucknorris',
-          query:{
-            category:'animal'
-          } // the data
         }}
       >
           <h2 className='text-xl text-white pt-20'>Wanna Hear a chucknorris joke</h2>
         </Link>
         
-          <select>
-          <option defaultValue>Choose a country</option>
-            {cat.map((i)=>(
-              <option key={i} value={i}>{i}</option>
-            ))}
-          </select>
+
 
         </div>
         </section>
