@@ -5,35 +5,69 @@ export default function clientfetchtest() {
   const cat=["animal","career","celebrity","dev","explicit","fashion","food","history","money","movie","music","political","religion","science","sport","travel"]
   const [category,setCategory]=useState(null)
   const [data,setData]=useState(null)
-  
+  const [loading,setLoading]=useState(true);
   useEffect(()=>{
+    setLoading(true);
     fetch('https://api.chucknorris.io/jokes/random')
     .then((res)=>res.json())
-    .then(({value})=>setData(value))
+    .then(({value})=>{
+      setData(value)
+      setLoading(false);
+
+    })
+    // setTimeout(() => {
+    //   console.log('timeout')
+    // }, 2000);
   },[])
   const getjoke=async (cat)=>{
-    const res=await fetch(`https://api.chucknorris.io/jokes/random?category=${cat}`);
-    const {value}=await res.json();
-    console.log(value)
-    setData(value)
+    
+    setLoading(true)
+    try{
+      const res=await fetch(`https://api.chucknorris.io/jokes/random?category=${cat}`);
+      const {value}=await res.json();
+      console.log("JOKE: ",value)
+      setData(value)
+      // Playing audio
+      // const audiores = await fetch('http://localhost:3000/api/txttospeach',{
+      //   mode: "no-cors",
+      // });
+      // // if (!audiores.ok) {
+      // //   throw new Error(`HTTP error! Status: ${response.status}`);
+      // // }
+      // const audioBuffer = await audiores.json();
+      // console.log(audioBuffer)
+      // playAudioFromBuffer(audioBuffer);
+    }
+    catch{
+      console.log("fetch err")
+    }
+    finally{
 
+    }
+    setLoading(false);
   }
 
     // if (isLoading) return <p>Loading...</p>
     // if (!data) return <p>No profile data</p>
   return (
+    
     <section className=' flex min-h-screen bg-slate-500 align-middle justify-center'>
     <div className="flex bg-slate-600 rounded-lg shadow-md px-9 py-9 text-center mt-72 mb-60 align-middle justify-center">
       <select onChange={(event)=>getjoke(event.target.value)} className='max-h-[1.5rem]'>
           <option defaultValue>Choose a country</option>
             {cat.map((i)=>(
-                <option key={i} value={i}>{i}</option>
-                ))}
+              <option key={i} value={i}>{i}</option>
+              ))}
           </select>
           {/* <h2>Selected cat: {category}</h2> */}
-                <h2 className='text-white pt-24'>{data}</h2>
+              {loading ?<div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-slate-600  rounded-lg shadow-md p-4">
+  <div className="animate-spin rounded-full bg-blue-500 h-8 w-8"></div>
+</div>
+              
+              :<h2 className='text-white pt-24'>{data}</h2>}
+                
     </div>
     </section>
-
+    
   )
 }
