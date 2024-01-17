@@ -29,8 +29,8 @@ export default function Home() {
         }}
       >
           <h2 className='text-xl text-white pt-20'>Wanna Hear a chucknorris joke</h2>
-        </Link>
         <SoundButton/>
+        </Link>
 
 
         </div>

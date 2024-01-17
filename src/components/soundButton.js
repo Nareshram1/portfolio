@@ -6,37 +6,8 @@ const SoundButton = () => {
 
     const [play]=useSound(boopSfx);
 
-    return <button onClick={play} className='bg-white'>Boop!</button>;
-    // return <img></img>
+    return <button onClick={play} className='bg-white mt-8'><img src='/chuck_norris.png' width="220rem"></img></button>;
 
-
-
-
-
-
-
-
-
-
-
-  // const [audio, setAudio] = useState(null);
-
-  // useEffect(() => {
-  //   setAudio(new Audio('/buttonClick.wav'));
-  // }, []);
-
-  // const playSound = () => {
-  //   if (audio) {
-  //       console.log('playing');
-  //     audio.play();
-  //   }
-  // };
-
-  // return (
-  //   <div>
-  //     <button onClick={playSound}>Click me to play sound</button>
-  //   </div>
-  // );
 };
 
 export default SoundButton;
