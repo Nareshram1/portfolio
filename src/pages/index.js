@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from "next/link"
 import { Inter } from '@next/font/google'
 
+import SoundButton from '@/components/soundButton'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -29,7 +30,7 @@ export default function Home() {
       >
           <h2 className='text-xl text-white pt-20'>Wanna Hear a chucknorris joke</h2>
         </Link>
-        
+        <SoundButton/>
 
 
         </div>
