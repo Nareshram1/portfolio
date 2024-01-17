@@ -15,9 +15,6 @@ export default function clientfetchtest() {
       setLoading(false);
 
     })
-    // setTimeout(() => {
-    //   console.log('timeout')
-    // }, 2000);
   },[])
   const getjoke=async (cat)=>{
     
@@ -27,16 +24,6 @@ export default function clientfetchtest() {
       const {value}=await res.json();
       console.log("JOKE: ",value)
       setData(value)
-      // Playing audio
-      // const audiores = await fetch('http://localhost:3000/api/txttospeach',{
-      //   mode: "no-cors",
-      // });
-      // // if (!audiores.ok) {
-      // //   throw new Error(`HTTP error! Status: ${response.status}`);
-      // // }
-      // const audioBuffer = await audiores.json();
-      // console.log(audioBuffer)
-      // playAudioFromBuffer(audioBuffer);
     }
     catch{
       console.log("fetch err")
@@ -46,9 +33,6 @@ export default function clientfetchtest() {
     }
     setLoading(false);
   }
-
-    // if (isLoading) return <p>Loading...</p>
-    // if (!data) return <p>No profile data</p>
   return (
     
     <section className=' flex min-h-screen bg-slate-500 align-middle justify-center'>
@@ -64,7 +48,7 @@ export default function clientfetchtest() {
   <div className="animate-spin rounded-full bg-blue-500 h-8 w-8"></div>
 </div>
               
-              :<h2 className='text-white pt-24'>{data}</h2>}
+              :<h2 className='text-white text-xl font-bold pt-24'>{data}</h2>}
                 
     </div>
     </section>
