@@ -28,7 +28,7 @@ export default function Home() {
           pathname: '/chucknorris',
         }}
       >
-          <h2 className='text-xl text-white pt-20'>Wanna Hear a chucknorris joke</h2>
+          <h2 className='text-white text-xl font-bold pt-20'>Wanna Hear a chucknorris joke</h2>
         <SoundButton/>
         </Link>
 
